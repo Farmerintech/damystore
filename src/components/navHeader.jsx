@@ -85,11 +85,11 @@ export const NewHeader = ()=>{
             <NewNav open={isOpen} close={Close}/>
             <div  className="flex items-center justify-center content-center gap-5">
                 <div onClick={()=>(showFav())}>
-                <p className="absolute top-2 text-blue-400 right-25">{state.Fav.length >0 ? state.Fav.length:''}</p>
+                <p className={`absolute top-5 ${state.Fav.length >0 ? 'bg-blue-400': ''} text-white right-25  flex justify-center items-center text-sm w-[15px] h-[15px] rounded-full `}>{state.Fav.length >0 ? state.Fav.length:''}</p>
                     <BiHeart size={25}/>
                 </div>
                 <div onClick={()=>(showCart())}>
-                 <p className="absolute top-2 text-blue-400 right-5" >{state.cart.length >0 ? state.cart.length:''}</p>
+                 <p className={`absolute top-5 ${state.cart.length >0 ? 'bg-blue-400': ''} flex justify-center items-center text-sm text-white w-[15px] h-[15px] rounded-full text-sm`} >{state.cart.length >0 ? state.cart.length:''}</p>
                    <BiShoppingBag size={25}/>
                 </div>
             </div>

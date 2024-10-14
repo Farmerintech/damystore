@@ -22,15 +22,15 @@ export const Footer =()=>{
                    <p className="mb-2 hover:text-blue-500"><span className="font-bold">Mob:</span> 203-545-5152</p>
                    <p className="mb-2 hover:text-blue-500"><span className="font-bold">Email:</span> farmerintech@gmail.com</p>
                 </ul>
-                <div className="flex gap-5">
+                <div className="flex gap-5 hidden md:flex">
                     <Link to='https://github.com/farmerintech'>
-                    <BiLogoGithub/>
+                    <BiLogoGithub size={20}/>
                     </Link>
                     <Link to='https://facebook.com/farmerintech'>
-                    <BiLogoFacebook/>
+                    <BiLogoFacebook size={20}/>
                     </Link>
                     <Link to='https://x.com/farmerintech'>
-                    <BiLogoTwitter/>
+                    <BiLogoTwitter size={20}/>
                     </Link>
 
                 </div>
@@ -61,7 +61,19 @@ export const Footer =()=>{
                     <input placeholder='Email' type='email' className="bg-white text-black p-3 w-[300px] outline-0"/>
                 </div>
                 <div>
-                    <button className="px-5 py-2 bg-gray-400 text-black ">Submit</button>
+                    <button className="px-5 py-2 bg-gray-400 text-black mb-10 ">Submit</button>
+                </div>
+                <div className="flex md:hidden gap-5">
+                    <Link to='https://github.com/farmerintech'>
+                    <BiLogoGithub size={30}/>
+                    </Link>
+                    <Link to='https://facebook.com/farmerintech'>
+                    <BiLogoFacebook size={30}/>
+                    </Link>
+                    <Link to='https://x.com/farmerintech'>
+                    <BiLogoTwitter size={30}/>
+                    </Link>
+
                 </div>
             </nav>
             </section>

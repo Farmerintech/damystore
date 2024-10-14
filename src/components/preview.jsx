@@ -26,7 +26,7 @@ export const Preview = ({ id, action})=>{
     const addFav = (item) => {
       navigator.vibrate(700);
         dispatch({ type: 'addToFav', payload: item });
-
+        action();
     };
 
     const [myProduct, setMyProducts] = useState(myProducts);

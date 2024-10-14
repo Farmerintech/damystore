@@ -23,7 +23,7 @@ const productReducer =(state, action)=>{
                     cart:[...state.cart, action.payload],
                     notify: {
                         ...state.notify,
-                        message: `${action.payload.name} added to cart`
+                        message: `${action.payload.name} added to cart`,
                     }
                    }
             }else{

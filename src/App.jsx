@@ -18,7 +18,8 @@ function App() {
   return (
     <div className="App pointer cursor-pointer">
       <ProductProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/damystore">
+
         <NewHeader/>
         <Notify/>
         

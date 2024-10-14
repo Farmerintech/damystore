@@ -30,6 +30,7 @@ const goTo =(productType, category, myId)=>{
 const [myProduct, setMyProducts] = useState(myProducts);
 
 const addToCart = (item) => {
+    navigator.vibrate(700);
     dispatch({ type: 'AddToCart', payload: item });
 };
 const addQuantity = (item) => {

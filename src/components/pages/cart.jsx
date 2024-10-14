@@ -22,13 +22,14 @@ export const Cart = ({ show }) => {
   };
 
   const removeFromCart = (item) => {
+    navigator.vibrate(700);
     dispatch({ type: "removeFromCart", payload: item });
   };
 
   return (
     <div
       className={`${
-        show ? "fixed top-0 right-0 z-20 shadow-md bg-white h-[100vh] w-[300px] mt-10 " : "hidden"
+        show ? "fixed top-0 bottom-0 right-0 z-20 shadow-md bg-white text-black h-[100vh] w-[300px] mt-10 " : "hidden"
       } flex flex-col justify-start overflow-y-auto`}
     >
       {state.cart.length === 0 ? (
@@ -44,13 +45,13 @@ export const Cart = ({ show }) => {
               <p>${item.price}.00</p>
               <p>Quantity: {item.quantity}</p>
               <div className="flex mt-2">
-                <button onClick={() => addQuantity(item)} className="mr-2">
+                <button onClick={() => addQuantity(item)} className="mr-2 text-white bg-blue-300">
                   <BiPlus />
                 </button>
-                <button onClick={() => decreaseQuantity(item)} className="mr-2">
+                <button onClick={() => decreaseQuantity(item)} className="mr-2 text-white bg-blue-300">
                   <BiMinus />
                 </button>
-                <button onClick={() => removeFromCart(item)}>
+                <button onClick={() => removeFromCart(item)} className=" text-white bg-blue-300">
                   <BiTrash />
                 </button>
               </div>
@@ -58,7 +59,7 @@ export const Cart = ({ show }) => {
           </div>
         ))
       )}
-      <div className="mt-auto p-5">
+      <div className=" p-5">
         <p className="font-bold">
           Total: ${calculateTotal()}.00
         </p>

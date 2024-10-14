@@ -59,7 +59,7 @@ export const SecondCarousel = ()=>{
             <div className="">
                 <h3 className="font-bold text-2xl">Trending Fashion</h3>
                 <p>Discover the essence of timeless fashion with our best selling collection, taillored to empower modern women </p>
-                <Btn prev={handlePrev} next ={handleNext} border ={'border-2 border-blue-300'} color={'text-black'} position={'md:ml-10 absolute md:left-0 right-0 mt-10'}/>
+                <Btn prev={handlePrev} next ={handleNext} border ={'border-2 border-blue-300'} color={'text-black'} position={'md:ml-10 absolute md:left-0 right-0 mt-10'} bgColor={'bg-blue-200'}/>
             </div>
             <div className="flex gap-6">
         {Images.slice(currentIndex, window.innerWidth >= 960 ? currentIndex + 3: currentIndex + 1).map((img, index) => (

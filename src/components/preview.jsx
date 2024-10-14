@@ -18,6 +18,7 @@ export const Preview = ({ id, action})=>{
      const {state, dispatch} = useContext(ProductContext)
  
      const addToCart = (item) => {
+      navigator.vibrate(700);
         dispatch({ type: 'AddToCart', payload: item });
         action();
 
@@ -54,7 +55,7 @@ export const Preview = ({ id, action})=>{
                 className="flex justify-around md:gap-8 border -2 border-blue-300 md:flex-row flex-col md:items-center fixed mt-10 top-10 p-2 z-30 w-[90%] md:w-[50%] md:h-[500px] h-[600px] bg-white"
               >
                 <div
-                  className="absolute top-5 right-5 bg-white text-gray-200 border-gray border-2 rounded-full p-1"
+                  className="absolute top-5 right-5 bg-white text-black text-gray-200 border-gray border-2 rounded-full p-1"
                   onClick={action}
                 >
                   <BiX size={20} />
@@ -68,10 +69,10 @@ export const Preview = ({ id, action})=>{
                 <div className="flex flex-col justify-start gap-2">
                   <h4 className="font-bold text-2xl text-left">{item.name}</h4>
                   <p>${item.price}.00 USD</p>
-                  <div className="border-2 flex gap-8 border-black w-[150px] justify-around p-2 rounded-md">
-                    <span onClick={() => addQuantity(item.id)}>+</span>
-                    <span>{item.quantity}</span>
-                    <span onClick={() => reduceQuantity(item)}>-</span>
+                  <div className="border-2 flex gap-8 border-black text-black w-[150px] justify-around p-2 rounded-md">
+                    <span onClick={() => addQuantity(item.id)} className="text-black">+</span>
+                    <span className="text-black">{item.quantity}</span>
+                    <span onClick={() => reduceQuantity(item)} className="text-black">-</span>
                   </div>
                   <button
                     className="bg-blue-400 text-white p-2 md:w-[200px]"

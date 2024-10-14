@@ -23,6 +23,12 @@ export const Preview = ({ id, action})=>{
         action();
 
     };
+    const addFav = (item) => {
+      navigator.vibrate(700);
+        dispatch({ type: 'addToFav', payload: item });
+
+    };
+
     const [myProduct, setMyProducts] = useState(myProducts);
 
     const addQuantity = (itemId) => {
@@ -80,7 +86,9 @@ export const Preview = ({ id, action})=>{
                   >
                     Add to Cart
                   </button>
-                  <button className="bg-blue-400 text-white p-2 md:w-[200px]">
+                  <button className="bg-blue-400 text-white p-2 md:w-[200px]"
+                   onClick={() => addFav(item)}
+                  >
                     Add to wishlist
                   </button>
                   <p

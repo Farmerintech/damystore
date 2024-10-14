@@ -5,6 +5,8 @@ import { IoBag, IoMenuOutline, IoSearch } from "react-icons/io5";
 import {Link} from 'react-router-dom'
 import { ProductContext } from "./productContext";
 import { Cart } from "./pages/cart";
+import { Fav } from "./pages/fav";
+
 import { Notify } from "./notify";
 
 export const NewNav = ({open, close, action})=>{
@@ -51,11 +53,20 @@ export const NewHeader = ()=>{
     const {state, dispatch} = useContext(ProductContext);
     const [show, setShow] = useState(false)
     const showCart = ()=>{
+        setShowFav(false)
         !show ?
-        setShow(true) : setShow(false)
+        setShow(true) : setShow(false); 
+        
 
     }
 
+    const [showfav, setShowFav] = useState(false)
+    const showFav = ()=>{
+        setShow(false); 
+        !showfav ?
+        setShowFav(true) : setShowFav(false);
+
+    }
     return(
        
         <>
@@ -63,28 +74,28 @@ export const NewHeader = ()=>{
         <header className="shadow-sm z-50 fixed top-0 bg-white w-[100%] flex justify-between p-5 bg-white text-black">
             <div className="flex items-center justify-center content-center gap-5">
                 <div className="pointer flex gap-2" onClick={()=>{handleNav()}}>
-                    <BiMenu size={20} className="lg:hidden"/>
-                    <p>Shopify</p>
+                    <BiMenu size={25} className="lg:hidden"/>
+                    <p className="font-bold">Damystore</p>
                 </div>
               
         
                 <div className="pointer">
-                    <IoSearch size={20}/>
                 </div>
             </div>
             <NewNav open={isOpen} close={Close}/>
             <div  className="flex items-center justify-center content-center gap-5">
-                <div>
-                <p className="absolute top-2 text-blue-400 right-5">{state.Fav.length >0 ? state.Fav.length:''}</p>
-                    <BiHeart size={20}/>
+                <div onClick={()=>(showFav())}>
+                <p className="absolute top-2 text-blue-400 right-25">{state.Fav.length >0 ? state.Fav.length:''}</p>
+                    <BiHeart size={25}/>
                 </div>
                 <div onClick={()=>(showCart())}>
                  <p className="absolute top-2 text-blue-400 right-5" >{state.cart.length >0 ? state.cart.length:''}</p>
-                   <BiShoppingBag size={20}/>
+                   <BiShoppingBag size={25}/>
                 </div>
             </div>
         </header>
         <Cart show={show}/>
+        <Fav showfav={showfav}/>
 
         </>
     )

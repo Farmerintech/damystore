@@ -1,42 +1,46 @@
 import { useContext, useState } from "react"
 import { ProductContext } from "../productContext"
-import {BiCheck, BiDumbbell, BiHeart, BiMinus, BiPlus, BiTrash} from 'react-icons/bi'
-import { IoHeart } from "react-icons/io5";
-
+import { BiTrash } from "react-icons/bi";
    
 
-export const Fav = ()=>{
+export const Fav = ({ showfav })=>{
     
 
     const{state, dispatch} = useContext(ProductContext);
-    console.log(state.cart); // Add this line to debug
+
     const removeFromFav = ( item)=>{
 
         dispatch({ type: 'removeFromFav', payload: item});
     }
 
-    return(
-        <div className='flex justify-center md:gap-5'>
-           <div className="flex  justify-center w-full w-1/2 md:w-1/4 lg:w-1/5 p-2 ">
-                {state.Fav.length === 0 ? (
-                    <p>Your cart is empty.</p>
-                ) : (
-                    state.Fav.map((item) => (
-                        
-                        <div key={item.id} className='w-full bg-slate-200 mb-5 flex flex-col justify-center items-center pb-3 rounded-xl'>
-                            <div className='p-5 flex justify-center'>
-                                <img src={item.asset.img} className='w-[100px] md:w-[200px] h-[100px] md:h-[120px]' />
-                            </div>
-                            <div>
-                            </div>
-                            <p>Name: {item.name}</p>
-                            <p>Price: ${item.price}</p>
-                            <p onClick={() => { removeFromFav(item) }} className="text-red-600"> <IoHeart size={20}/> </p>
-
-                        </div>
-                    ))
-                )}
-            </div>
+    return (
+        <div
+          className={`${
+            showfav ? "fixed top-0 bottom-0 right-0 z-20 shadow-md bg-white text-black h-[100vh] w-[300px] mt-10 " : "hidden"
+          } flex flex-col justify-start overflow-y-auto`}
+        >
+          {state.Fav.length === 0 ? (
+            <p className="text-center mt-10">Your have nothing in your favourite is empty.</p>
+          ) : (
+            state.Fav.map((item) => (
+              <div key={item.id} className="mt-10 flex mb-5 items-center pb-3 rounded-xl">
+                <div className="p-5 flex justify-center">
+                  <img src={item.img} className="w-[100px] h-[100px] md:h-[120px]" alt={item.name} />
+                </div>
+                <div className="flex flex-col ml-3">
+                  <p>{item.name}</p>
+                  <p>${item.price}.00</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <div className="flex mt-2">
+                    <button onClick={() => removeFromFav(item)} className=" text-white bg-blue-300">
+                      <BiTrash />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
-    )
-}
+      );
+    };
+    

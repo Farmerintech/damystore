@@ -6,7 +6,6 @@ import {
   Routes,
 } from "react-router-dom";
 import { ProductContext, ProductProvider } from './components/productContext';
-import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { Cart } from './components/pages/cart';
 import { Fav } from './components/pages/fav';

@@ -51,6 +51,9 @@ import carouse88 from '../asset/images1/carousel77.webp';
 import carouse99 from '../asset/images1/hats-icon.png';
 import carouse210 from '../asset/images1/carousel210.webp';
 import menIcon from '../asset/images1/shoe.webp'
+import carouse2 from '../asset/images1/hats3.webp'
+import carouse3 from '../asset/images1/carousel66.webp'
+import carouse4 from '../asset/images1/carousel3.webp'
 
  const myProducts1 = [
     { id: 1, name: 'Bradford Casual Fedora', category: 'men', productType: 'hats', price: 25, description: 'A stylish fedora, perfect for casual outings or adding a touch of flair to your wardrobe.', img: img1 },
@@ -113,7 +116,10 @@ import menIcon from '../asset/images1/shoe.webp'
         { id: 49, name: 'Ethan Classic Derby', category: 'women', productType: 'clothes', price: 55, 
             description: 'A pair of comfortable and stylish classic Derby shoes. Perfect for formal occasions or adding a touch of elegance to any outfit.', 
             img: carouse88 },
-            
+            { id: 51, name: 'Lily Summer Dress', category: 'women', productType: 'clothes', price: 70, description: 'Fashion-forward summer dress, perfect for casual outings and warm weather.', img: carouse2 },
+            { id: 52, name: 'Grace Evening Gown', category: 'women', productType: 'clothes', price: 75, description: 'Elegant and trendy evening gown, suitable for formal occasions and events.', img: carouse3 },
+            { id: 53, name: 'Ava Casual Chic Ensemble', category: 'women', productType: 'clothes', price: 80, description: 'Modern and chic casual wear for women, offering both comfort and style.', img: carouse4 },
+          
     ];
     
 

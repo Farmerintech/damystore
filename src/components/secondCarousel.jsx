@@ -5,30 +5,17 @@ import carouse2 from '../asset/images1/hats3.webp'
 import carouse3 from '../asset/images1/carousel66.webp'
 import carouse4 from '../asset/images1/carousel3.webp'
 import carouse1l from '../asset/images1/carousel99.webp'
+import { useNavigate } from "react-router-dom";
 
 export const SecondCarousel = ()=>{
     const Images =
     [
-        {
-            img:carousel,
-            text:'My shoe'
-        },
-        {
-            img:carouse2,
-            text:'My cloth'
-        },
-        {
-            img:carouse3,
-            text:'designers'
-        },
-        {
-            img:carouse4,
-            text:'cardigans'
-        },
-        {
-            img:carouse1l,
-            text:'hats'
-        },
+      { id: 50, name: 'Sophie Casual Knit Set', category: 'women', productType: 'clothes', price: 65, description: 'Comfortable and stylish knitwear for women, perfect for everyday casual wear.', img: carousel },
+      { id: 51, name: 'Lily Summer Dress', category: 'women', productType: 'clothes', price: 70, description: 'Fashion-forward summer dress, perfect for casual outings and warm weather.', img: carouse2 },
+      { id: 52, name: 'Grace Evening Gown', category: 'women', productType: 'clothes', price: 75, description: 'Elegant and trendy evening gown, suitable for formal occasions and events.', img: carouse3 },
+      { id: 53, name: 'Ava Casual Chic Ensemble', category: 'women', productType: 'clothes', price: 80, description: 'Modern and chic casual wear for women, offering both comfort and style.', img: carouse4 },
+      { id: 54, name: 'Chloe Versatile Outfit', category: 'women', productType: 'clothes', price: 85, description: 'Stylish and comfortable outfit for women, suitable for a variety of occasions.', img: carouse1l },
+  
 
     ]
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,6 +38,15 @@ export const SecondCarousel = ()=>{
         setCurrentIndex(currentIndex - 1);
       }
     }
+    const navigate = useNavigate()
+    const goTo =(productType, category, id)=>{
+      setTimeout(()=>{
+      //  window.location.reload();
+      }, 500)
+      navigate(`/${productType}/${category}/${id}`);
+      window.scrollTo({top:0, behavior:'smooth'})
+  }
+
 
     return(
     
@@ -63,7 +59,7 @@ export const SecondCarousel = ()=>{
             </div>
             <div className="flex gap-6">
         {Images.slice(currentIndex, window.innerWidth >= 960 ? currentIndex + 3: currentIndex + 1).map((img, index) => (
-            <div className="flex flex-col w-full " key={index}>
+            <div className="flex flex-col w-full " key={index} onClick={()=>(goTo(img.productType, img.category, img.id))}>
                  <img
                    src={img.img}
                    alt={`img-${index}`}
@@ -74,7 +70,7 @@ export const SecondCarousel = ()=>{
                       objectFit: "cover",
                 }}
           />
-          <p>{img.text}</p>
+          <p>{img.name}</p>
            </div>
         ))}
            

@@ -47,26 +47,11 @@ const productReducer =(state, action)=>{
                         }
                     }
         case 'addToFav':
-            const isFavorite = state.Fav.find(item => item.id === action.payload.id);
-            if (!isFavorite){
                 return{
                      ...state,
                      Fav:[...state.Fav, action.payload],
                      ...state.notify.message = `${action.payload.name} added to favourite `
                 }
-            }else{
-                //console.log('item already in cart')
-                return { 
-                    ...state,
-                    Fav:state.Fav.filter(item=>
-                        item.id !==action.payload.id),
-                        ...state.notify.message = `${action.payload.name} removed from favourite `,
-                notify: {
-                    ...state.notify,
-                    message: `${action.payload.name} removed from favourite`
-                }
-            };
-            }
        case 'removeFromFav':
                   return{
                      ...state,

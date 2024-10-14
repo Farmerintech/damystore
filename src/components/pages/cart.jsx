@@ -4,7 +4,6 @@ import { BiCheck, BiDumbbell, BiMinus, BiPlus, BiTrash } from "react-icons/bi";
 
 export const Cart = ({ show }) => {
   const { state, dispatch } = useContext(ProductContext);
-  console.log(state.cart); // Debugging line
 
   const addQuantity = (item) => {
     dispatch({ type: "addQuantity", payload: item });

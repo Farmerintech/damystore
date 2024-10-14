@@ -95,6 +95,12 @@ const navigate = useNavigate()
 
     const orderNow =()=>{
     }
+      const addFav = (item) => {
+        navigator.vibrate(700);
+          dispatch({ type: 'addToFav', payload: item });
+  
+      };
+    
     return (
         <section className="">
             <div className={`${visible ? 'block' : 'hidden'} flex justify-center items-center`}>
@@ -129,10 +135,10 @@ const navigate = useNavigate()
                             }}
                         />
                     <p className="hidden"></p>
-                        <div className="absolute top-4 left-2 bg-blue-400 text-blue-100 w-[40px] h-[40px] flex justify-center items-center">
+                        <div className="absolute top-4 left-2 bg-blue-400 text-blue-100 w-[40px] h-[40px] flex justify-center items-center" onClick={()=>addFav(item)}>
                             <BiHeart size={30} />
                         </div>
-                        <div className="absolute right-10 bottom-20 bg-blue-400 text-blue-100 w-[full] p-2 flex justify-center items-center" 
+                        <div className="absolute right-10 bottom-20 bg-blue-400 text-blue-100 w-[full] px-3 py-3 flex justify-center items-center" 
                         onClick={() => handleClick(item.id)}>
                             <p>Quick View</p>
                         </div>

@@ -1,8 +1,9 @@
-import { BiX } from "react-icons/bi"
+import { BiArrowFromRight, BiArrowToRight, BiX } from "react-icons/bi"
 import { Link, useNavigate } from "react-router-dom"
 import { myProducts } from "./storeProducts"
 import { useContext, useState } from "react"
 import { ProductContext } from "./productContext"
+import { IoArrowBack, IoArrowForward } from "react-icons/io5"
 export const Preview = ({ id, action})=>{
     const navigate =useNavigate()
     const goTo =(productType, category, id)=>{
@@ -72,7 +73,7 @@ export const Preview = ({ id, action})=>{
                     className="md:w-[300px] w-[300px] md:h-[300px] h-[300px] rounded-md"
                   />
                 </div>
-                <div className="flex flex-col justify-start gap-2">
+                <div className="flex flex-col justify-start gap-2 p-5 ">
                   <h4 className="font-bold text-2xl text-left">{item.name}</h4>
                   <p>${item.price}.00 USD</p>
                   <div className="border-2 flex gap-8 border-black text-black w-[150px] justify-around p-2 rounded-md">
@@ -92,10 +93,10 @@ export const Preview = ({ id, action})=>{
                     Add to wishlist
                   </button>
                   <p
-                    className="text-underline cursor-pointer"
+                    className="text-underline cursor-pointer flex justify-start items-center gap-5 font-bold"
                     onClick={() => goTo(item.productType, item.category, item.id)}
                   >
-                    View full details
+                    View full details <IoArrowForward/>
                   </p>
                 </div>
               </div>

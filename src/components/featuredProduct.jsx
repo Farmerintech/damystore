@@ -166,7 +166,7 @@ const navigate = useNavigate()
                         onClick={() => handleClick(item.id)}>
                             <p>Quick View</p>
                         </div>
-                        <p onClick={()=>(goTo(item.productType, item.category, item.id))}>
+                        <p onClick={()=>(goTo(item.productType, item.category, item.id))} className="text-xl ml-5 mt-5 mb-5">
                         {item.name}
                         </p>
                     </div>

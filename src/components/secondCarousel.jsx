@@ -95,7 +95,7 @@ useEffect(()=>{
                       objectFit: "cover",
                 }}
           />
-          <p>{img.name}</p>
+          <p className="text-xl ml-5 mt-5">{img.name}</p>
            </div>
         ))}
            

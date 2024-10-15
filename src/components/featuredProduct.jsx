@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import carousel from '../asset/images1/carousel1.webp';
 import carouse1l from '../asset/images1/carousel99.webp';
 import carouse22 from '../asset/images1/carousel22.webp';
@@ -64,7 +64,29 @@ const navigate = useNavigate()
     const [clickedData, setClickedData] = useState({});
     const [visible, setVisible] = useState(null);
 
+
+       //handle auto
+
+       let timer
+  useEffect(()=>{
+    timer = setTimeout(() => {
+        if (window.innerWidth >= 960 && currentIndex + 3 === 3 || window.innerWidth <= 959 && currentIndex + 1 === 1 ) {
+            setCurrentIndex(currentIndex + 7 );
+          }else{
+            setCurrentIndex(currentIndex - 1);
+          }
+          if (window.innerWidth >= 960 && currentIndex + 3 === featruredProductsImg.length || 
+            window.innerWidth <= 959 && currentIndex +1 === featruredProductsImg.length) {
+         // alert(window.innerWidth)
+         setCurrentIndex(0);
+  
+        }else{
+          setCurrentIndex(currentIndex + 1);
+        }
+    }, 4000);
+  })
     const handleNext = () => {
+        clearTimeout(timer)// clear the timeout so the button can be use to view slides
         if (window.innerWidth >= 960 && currentIndex + 3 === featruredProductsImg.length || 
             window.innerWidth <= 959 && currentIndex +1 === featruredProductsImg.length) {
          // alert(window.innerWidth)
@@ -76,13 +98,15 @@ const navigate = useNavigate()
       };
       // Function to handle 'Prev' button click
       const handlePrev = () => {
+        clearTimeout(timer)
         if (window.innerWidth >= 960 && currentIndex + 3 === 3 || window.innerWidth <= 959 && currentIndex + 1 === 1 ) {
           setCurrentIndex(currentIndex + 7 );
         }else{
           setCurrentIndex(currentIndex - 1);
         }
       }
-  
+   
+
     const handleClick = ( id) => {
         setVisible(true);
         setClickedData({id});

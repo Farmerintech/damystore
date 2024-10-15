@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Btn } from "./utils/btn";
 export const FirstCarousel =()=>{
     const [current, setCurrent] = useState(1);
     let [current2, setCurrent2] = useState(1)
+    //auto 
+
+    let timer;
+    useEffect(()=>{
+        timer = setTimeout(() => {
+            current === 1 ? setCurrent(2) : setCurrent(1)
+        }, 3000);
+    })
     const NextPrev =()=>{
+        clearTimeout(timer)
         current === 1 ? setCurrent(2) : setCurrent(1)
     }
     const NextPrevTwo =()=>{
         current2 >= 1 ? setCurrent2(current2+1) : current2 === 4 ? setCurrent2(1) : setCurrent2(1)
     }
+   
     return(
         <div>
          <div className="carousel">

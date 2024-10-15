@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Btn } from "./utils/btn";
 import carousel from '../asset/images1/carousel1.webp'
 import carouse2 from '../asset/images1/hats3.webp'
@@ -19,9 +19,30 @@ export const SecondCarousel = ()=>{
 
     ]
     const [currentIndex, setCurrentIndex] = useState(0);
+//auto 
+
+let timer;
+useEffect(()=>{
+   timer= setTimeout(()=>{
+    if (window.innerWidth >= 960 && currentIndex + 3 === Images.length || window.innerWidth <= 959 && currentIndex +1 === Images.length) {
+      // alert(window.innerWidth)
+      setCurrentIndex(0);
+
+     }else{
+       setCurrentIndex(currentIndex + 1);
+     }
+
+     if (window.innerWidth >= 960 && currentIndex + 3 === 3 || window.innerWidth <= 959 && currentIndex + 1 === 1 ) {
+      setCurrentIndex(currentIndex +2 );
+    }else{
+      setCurrentIndex(currentIndex - 1);
+    }
+  }, 3500)
+})
 
     // Function to handle 'Next' button click
     const handleNext = () => {
+      clearTimeout(timer)
       if (window.innerWidth >= 960 && currentIndex + 3 === Images.length || window.innerWidth <= 959 && currentIndex +1 === Images.length) {
        // alert(window.innerWidth)
        setCurrentIndex(0);
@@ -32,12 +53,16 @@ export const SecondCarousel = ()=>{
     };
     // Function to handle 'Prev' button click
     const handlePrev = () => {
+      clearTimeout(timer)
+
       if (window.innerWidth >= 960 && currentIndex + 3 === 3 || window.innerWidth <= 959 && currentIndex + 1 === 1 ) {
         setCurrentIndex(currentIndex +2 );
       }else{
         setCurrentIndex(currentIndex - 1);
       }
     }
+
+    //auto 
     const navigate = useNavigate()
     const goTo =(productType, category, id)=>{
       setTimeout(()=>{

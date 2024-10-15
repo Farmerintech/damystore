@@ -64,9 +64,9 @@ const addQuantity = (item) => {
             </div>
             <div>
                {myProduct.filter(item=>item.id==id).map((item)=>(
-                <section className="mt-10 flex gap-10 justify-center md:flex-row flex-col md:items-center">
+                <section className="mt-10 flex gap-10 justify-center md:flex-row flex-col md:items-center p-5">
                  <div className="flex justify-center items-center">
-                     <img src={item.img} className="md:w-[300px] w-[100%] md:h-[400px] h-[300px] rounded-md"/>
+                     <img src={item.img} className="md:w-[300px] w-[100%] md:h-[400px] h-[400px] rounded-md"/>
                  </div>
                  <div className="flex flex-col justify-start gap-2">
                  <h4 className="font-bold text-2xl text-left">{item.name}</h4>
